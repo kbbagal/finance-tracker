@@ -7,7 +7,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <% if user_signed_in? %>
+            <%= link_to "Check Stock Price", stock_path, class:'nav-link' %>
+          <% end %>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
