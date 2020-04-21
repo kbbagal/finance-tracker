@@ -1,0 +1,23 @@
+<h1>My portfolio</h1>
+<div class='search-area'>
+  <h3>Search Stocks</h3>
+  <%= form_tag 'stock',method: :get do %>
+    <div class="form-group row">
+      <div class="col-sm-9">
+        <%= text_field_tag :symbol, params[:symbol], placeholder: 'Please provide stock symbol', class: "form-control form-control-lg", autofocus:true %>
+      </div>
+      <div class="col-sm-3">
+        <%= button_tag "Search", type: :submit, class:"btn-lg btn-success"%>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+<div class='results'>
+<% if @stock %>
+  <div class='card card-heder'>
+    <strong> Ticker Symbol  : </strong><%= params[:symbol] %>
+    <strong> Price : </strong><%= @stock %>
+  </div>
+<% end %>
+</div>
