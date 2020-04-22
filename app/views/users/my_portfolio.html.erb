@@ -15,9 +15,17 @@
 
 <div class='results'>
 <% if @stock %>
-  <div class='card card-heder col-9'>
-    <strong> Ticker Symbol  : </strong><%= params[:symbol] %>
-    <strong> Price : </strong><%= @stock %>
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">Stocke Information</div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @stock.ticker %></h5>
+        <p class="card-text">
+          <strong> Company  : </strong><%= @stock.name %>
+        </p>
+        <p class="card-text">
+          <strong> Price : </strong><%= @stock.last_price %>
+        </p>
+      </div>
   </div>
 <% end %>
 </div>
