@@ -1,0 +1,16 @@
+<% if @stock %>
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">Stock Information</div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @stock.ticker %></h5>
+        <p class="card-text">
+          <strong> Company  : </strong><%= @stock.name %>
+        </p>
+        <p class="card-text">
+          <strong> Price : </strong><%= @stock.last_price %>
+        </p>
+      </div>
+  </div>
+<% else %>  
+  <%= render "layouts/messages" %>
+<% end %>
