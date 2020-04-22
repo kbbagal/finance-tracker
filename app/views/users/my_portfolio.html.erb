@@ -16,3 +16,5 @@
 <div id='stock-results'>
   <%= render 'users/stock_search_result' %>
 </div>
+
+<%= render 'user_stocks/user_stocks_listing' if !@user_stocks.empty? %>

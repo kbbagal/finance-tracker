@@ -1,0 +1,22 @@
+<div class='col-10'>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Ticker</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @user_stocks.each do |user_stock| %>
+      <tr>
+        <th><%= user_stock.ticker %></th>
+        <td><%= user_stock.name %></td>
+        <td><%= user_stock.last_price %></td>
+        <td> Remove </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
