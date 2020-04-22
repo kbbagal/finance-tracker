@@ -7,6 +7,7 @@ class Stock < ApplicationRecord
     begin
       new(ticker: ticker_symbol, name: client.company(ticker_symbol).company_name, last_price:client.price(ticker_symbol))
     rescue Exception => e
+      print e
       return nil
     end
   end
