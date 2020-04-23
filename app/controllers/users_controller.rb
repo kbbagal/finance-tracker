@@ -17,4 +17,8 @@ class UsersController < ApplicationController
       redirect_to my_portfolio_path
     end
   end
+
+  def my_friends
+    @friends = current_user.friends
+  end
 end

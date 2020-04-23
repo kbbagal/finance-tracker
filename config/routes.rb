@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'stock', to: 'stocks#stock'
   root 'welcome#index'
   devise_for :users
+  get 'friends', to: 'users#my_friends'
 end
