@@ -22,4 +22,10 @@ class User < ApplicationRecord
   def can_track_stock?(ticker_symbol)
     !tracking_stock?(ticker_symbol) && under_tracking_threshold?
   end
+
+  def display_name
+    return first_name if first_name
+
+    "Anonymous"
+  end
 end
