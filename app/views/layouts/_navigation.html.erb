@@ -21,7 +21,9 @@
       </li>
     </ul>
     <span class="navbar-text px-3">
-      <%= current_user.display_name %>
+      <% if user_signed_in? %>
+        <%= current_user.display_name %>
+      <% end %>
     </span>  
     <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, class:'btn btn-danger mr-2', method: :delete %>
