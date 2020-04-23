@@ -14,4 +14,8 @@ class Stock < ApplicationRecord
       return nil
     end
   end
+
+  def self.does_exist(ticker_symbol)
+    find_by(ticker: ticker_symbol)
+  end
 end
