@@ -1,2 +1,20 @@
 <h1> My Friends </h1>
-<%= render 'friends/listing' %>
+
+<div class='search-area'>
+  <h3>Search Friends</h3>
+  <%= form_tag 'friends_search', remote: true, method: :get do %>
+    <div class="form-group row">
+      <div class="col-sm-9">
+        <%= text_field_tag :friend, params[:friend], placeholder: 'Please enter friend\'s name', class: "form-control form-control-lg", autofocus:true %>
+      </div>
+      <div class="col-sm-3 pl-0">
+        <%= button_tag "Search", type: :submit, class:"btn-lg btn-success"%>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+<div id='search-results'></div>
+
+<div></div>
+<%= render 'friends/listing' if !@friends.empty? %>

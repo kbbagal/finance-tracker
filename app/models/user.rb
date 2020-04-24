@@ -30,4 +30,12 @@ class User < ApplicationRecord
 
     "Anonymous"
   end
+
+  def self.lookup(name)
+    where('lower(first_name) LIKE lower(?) OR lower(last_name) LIKE lower(?)', "%#{name}%", "%#{name}%")
+  end
+
+  def is_following_friend?(friend)
+    friends.where(id: friend).exists?
+  end
 end

@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users
   get 'friends', to: 'users#my_friends'
+  get 'friends_search', to: 'users#search'
+  resources :friendships, only: [:create, :destroy]
+  resources :users, only: [:show]
 end

@@ -1,0 +1,17 @@
+<% if @friends_found %>
+  <% @friends_found.each do |friend| %>
+    <div class="card col-4 mb-2 mr-2 float-left">
+      <div class="card-body">
+        <strong>Name</strong> : <%= friend.display_name %>
+        <%= link_to "View profile", user_path(friend), class: 'btn btn-sm btn-success' %>
+          <% if current_user.id != friend.id && !current_user.is_following_friend?(friend.id) %>
+            <%= link_to "Start following", friendships_path(friend: friend), method: :POST, class: 'btn btn-sm btn-success mx-auto mb-3 float-left' %>
+          <% else %>
+            <% if current_user.is_following_friend?(friend.id) %>
+              <button class="btn btn-sm btn-outline-primary float-left">Following</button>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

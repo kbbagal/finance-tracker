@@ -1,0 +1,16 @@
+<h3>User Profile</h3>
+
+<div class="card col-4 mb-2 mr-2 float-left">
+  <div class="card-body">
+    <strong>Name</strong> : <%= @user.display_name %>
+      <% if current_user.id != @user.id %>
+        <%= link_to "Start following", friendships_path(friend: @user), method: :POST, class: 'btn btn-sm btn-success mx-auto mb-3' %>
+      <% else %>
+        <% if current_user.is_following_friend?(@user.id) %>
+          <button class="btn btn-sm btn-outline-primary">Following</button>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<%= render 'user_stocks/user_stocks_listing' if !@user_stocks.empty? %>

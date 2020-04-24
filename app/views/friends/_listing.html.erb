@@ -1,7 +1,9 @@
-<div class='col-10'>
+<br />
+<div>
   <table class="table table-striped">
     <thead>
       <tr>
+        <th scope="col">Email</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Action</th>
@@ -10,9 +12,11 @@
     <tbody>
     <% @friends.each do |friend| %>
       <tr>
+        <td><%= friend.email %></td>
         <td><%= friend.first_name %></td>
-        <td><%= friend.first_name %></td>
-        <td> <%= link_to "Stop following", '#', method: :delete, class: 'btn btn-sm btn-warning', data: {confirm: 'Are you sure?'}%> </td>
+        <td><%= friend.last_name %></td>
+        <td>  <%= link_to "View profile", user_path(friend), class: 'btn btn-sm btn-success' %>
+              <%= link_to "Stop following", friendship_path(friend), method: :delete, class: 'btn btn-sm btn-warning', data: {confirm: 'Are you sure?'}%> </td>
       </tr>
     <% end %>
     </tbody>
